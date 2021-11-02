@@ -154,6 +154,9 @@ void CANSimple::do_command(Axis& axis, const can_Message_t& msg) {
         default:
             break;
     }
+    if (!msg.rtr) {
+        canbus_->send_message(msg);
+    }
 }
 
 void CANSimple::nmt_callback(const Axis& axis, const can_Message_t& msg) {
