@@ -26,7 +26,7 @@ class CANSimple {
         MSG_START_ANTICOGGING,
         MSG_SET_TRAJ_VEL_LIMIT,
         MSG_SET_TRAJ_ACCEL_LIMITS,
-        MSG_SET_TRAJ_INERTIA,
+        MSG_SET_TRAJ_FEEDFORWARD,
         MSG_GET_IQ,
         MSG_GET_SENSORLESS_ESTIMATES,
         MSG_RESET_ODRIVE,
@@ -78,7 +78,7 @@ class CANSimple {
     static void set_limits_callback(Axis& axis, const can_Message_t& msg);
     static void set_traj_vel_limit_callback(Axis& axis, const can_Message_t& msg);
     static void set_traj_accel_limits_callback(Axis& axis, const can_Message_t& msg);
-    static void set_traj_inertia_callback(Axis& axis, const can_Message_t& msg);
+    static void set_traj_feedforward_callback(Axis& axis, const can_Message_t& msg);
     static void set_linear_count_callback(Axis& axis, const can_Message_t& msg);
     static void set_pos_gain_callback(Axis& axis, const can_Message_t& msg);
     static void set_vel_gains_callback(Axis& axis, const can_Message_t& msg);

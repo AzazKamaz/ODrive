@@ -262,7 +262,7 @@ bool Controller::update() {
                 TrapezoidalTrajectory::Step_t traj_step = axis_->trap_traj_.eval(axis_->trap_traj_.t_);
                 pos_setpoint_ = traj_step.Y;
                 vel_setpoint_ = traj_step.Yd;
-                torque_setpoint_ = traj_step.Ydd * config_.inertia;
+                torque_setpoint_ = traj_step.Ydd * config_.inertia + copysign(config_.friction, traj_step.Yd);
                 axis_->trap_traj_.t_ += current_meas_period;
             }
             anticogging_pos_estimate = pos_setpoint_; // FF the position setpoint instead of the pos_estimate
